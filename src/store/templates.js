@@ -8,11 +8,11 @@ const initialTemplate = {
   version: latestVersion,
   savedate: 0,
   local: true,
-  type: "masu",
+  type: "pattern",
   data: {},
 };
 
-const initialMasu = {
+const initialPattern = {
   pageFormat: "A4",
   length: "",
   width: "",
@@ -124,7 +124,7 @@ export default function templateReducer(state = initialState, action) {
           ...initialTemplate,
           savedate: new Date().getTime(),
           data: {
-            ...initialMasu,
+            ...initialPattern,
           },
         },
       };

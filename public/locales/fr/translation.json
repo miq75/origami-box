@@ -27,10 +27,10 @@
   },
   "create": {
     "title": "Créer un nouveau template",
-    "masu": {
+    "pattern": {
       "title": "Masu",
       "subtitle": "Le couteau-suisse des boîtes",
-      "description": "Ce modèle de masu vous permet de choisir chacune des dimensions de la boîte et est généralement un bon choix pour une boîte qui n'a pas besoin d'être haute.",
+      "description": "Ce modèle de Masu vous permet de choisir chacune des dimensions de la boîte et est généralement un bon choix pour une boîte qui n'a pas besoin d'être haute.",
       "button": "Créer un modèle Masu"
     }
   },
@@ -107,8 +107,8 @@
       "remoteContent": "Supprimer le modèle <1>{{title}}</1> ? Ce modèle sera supprimé définitivement du serveur et sera perdu."
     }
   },
-  "masu": {
-    "title": "Masu",
+  "pattern": {
+    "title": "Pattern",
     "format": {
       "label": "Format",
       "A4": "A4",

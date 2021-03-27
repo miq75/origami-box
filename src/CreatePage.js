@@ -56,7 +56,7 @@ function Side(props) {
   );
 }
 
-function MasuBox(props) {
+function PatternBox(props) {
   // This reference will give us direct access to the mesh
   const mesh = useRef();
 
@@ -106,7 +106,7 @@ export default function CreatePage() {
                   <ambientLight />
                   <pointLight position={[10, 10, 10]} />
                   <pointLight position={[-10, 10, 10]} />
-                  <MasuBox
+                  <PatternBox
                     position={[0, 0, -1]}
                     scale={[2, 2, 2]}
                     rotation={[0.7, 0, 0]}
@@ -115,16 +115,16 @@ export default function CreatePage() {
               </div>
               <div className="col-8">
                 <div className="card-body">
-                  <h5 className="card-title">{t("create.masu.title")}</h5>
+                  <h5 className="card-title">{t("create.pattern.title")}</h5>
                   <h6 className="card-subtitle mb-2 text-muted">
-                    {t("create.masu.subtitle")}
+                    {t("create.pattern.subtitle")}
                   </h6>
-                  <p className="card-text">{t("create.masu.description")}</p>
+                  <p className="card-text">{t("create.pattern.description")}</p>
                   <button
                     onClick={handleCreate}
                     className="btn btn-primary stretched-link"
                   >
-                    {t("create.masu.button")}
+                    {t("create.pattern.button")}
                   </button>
                 </div>
               </div>

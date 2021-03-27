@@ -4,7 +4,7 @@ import { ToastContainer } from "react-toastify";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import HomePage from "./HomePage";
-import Masu from "./Masu";
+import Pattern from "./Pattern";
 import ProcessPage from "./ProcessPage";
 import LogoPage from "./LogoPage";
 import { FacebookProvider, ProfilePage } from "./Profile";
@@ -26,7 +26,7 @@ export default function App() {
               <HomePage />
             </Route>
             <Route path="/edit/:templateKey">
-              <Masu />
+              <Pattern />
             </Route>
             <Route path="/templates">
               <TemplatePage />

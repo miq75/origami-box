@@ -2,7 +2,7 @@ import { useTranslation, Trans } from "react-i18next";
 import Loader from "react-loader-spinner";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { MasuTemplate } from "../Masu/MasuTemplateBack";
+import { PatternTemplate } from "../Pattern/PatternTemplateBack";
 import { localSave } from "../store/templates";
 import Modal from "../Generic/Modal";
 import { getProfile } from "../store";
@@ -54,26 +54,26 @@ export function TemplateMiniature({
                   data-bs-target={`#carouselTemplate${index}`}
                   data-bs-slide-to="0"
                   className="active"
-                  title={t("masu.stepBDesign.lid.title")}
+                  title={t("pattern.stepBDesign.lid.title")}
                 ></button>
                 <button
                   type="button"
                   data-bs-target={`#carouselTemplate${index}`}
                   data-bs-slide-to="1"
-                  title={t("masu.stepBDesign.base.title")}
+                  title={t("pattern.stepBDesign.base.title")}
                 ></button>
               </div>
               <div className="carousel-inner">
                 <div className="carousel-item active">
-                  <MasuTemplate
-                    masu={template.data}
+                  <PatternTemplate
+                    pattern={template.data}
                     lid={true}
                     withPaper={false}
                   />
                 </div>
                 <div className="carousel-item">
-                  <MasuTemplate
-                    masu={template.data}
+                  <PatternTemplate
+                    pattern={template.data}
                     lid={false}
                     withPaper={false}
                   />
@@ -82,7 +82,7 @@ export function TemplateMiniature({
             </div>
           )}
           {!template.data.withLid && (
-            <MasuTemplate masu={template.data} withPaper={false} />
+            <PatternTemplate pattern={template.data} withPaper={false} />
           )}
         </div>
         <div className="card-body">
