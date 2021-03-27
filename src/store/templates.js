@@ -1,7 +1,54 @@
 import { v4 as uuidv4 } from "uuid";
 import { latestVersion } from "./migrations";
 
-const initialState = {};
+// début ajout MiQ
+const initialState = {
+  pFileList: undefined,
+  pattern: undefined,
+};
+
+export function setPatternList(value) {
+  return {
+    type: "SET_PATTERN_LIST",
+    payload: { value },
+  };
+}
+
+export function setPatternFromFile(value) {
+  return {
+    type: "SET_PATTERN_FROM_FILE",
+    payload: { value },
+  };
+}
+
+export function patternReducer(state = initialState, action) {
+  switch (action.type) {
+    case "SET_PATTERN_LIST": {
+      //      console.log("reducer set list:", action.payload.value);
+      return {
+        ...state,
+        pFileList: action.payload.value,
+      };
+    }
+
+    case "SET_PATTERN_FROM_FILE": {
+      console.log(
+        'reducer set pattern "' +
+          action.payload.value.patternName +
+          '" from file :',
+        action.payload.value
+      );
+      return {
+        ...state,
+        pattern: action.payload.value,
+      };
+    }
+
+    default:
+      return state;
+  }
+}
+// fin ajout MiQ
 
 const initialTemplate = {
   title: "",

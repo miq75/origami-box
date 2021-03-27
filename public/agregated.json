@@ -1,0 +1,21 @@
+{
+	"INFO": [
+		" ----- DO NOT MANUALLY EDIT THIS FILE ----- ",
+		"This file contains a list of all origami pattern",
+		"files contained in public/patterns.",
+		"Each json file defines 'type': 'origamiPattern'",
+		"and a 'patternName' attribute.",
+		"Use public/agregate.py to generate this file when",
+		"new patterns have to be concatenated here."
+	],
+	"patterns": [
+		{
+			"fileName": "corolla.json",
+			"patternName": "Corolla box"
+		},
+		{
+			"fileName": "flared.json",
+			"patternName": "Flared card pocket"
+		}
+	]
+}

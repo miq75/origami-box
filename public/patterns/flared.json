@@ -1,0 +1,37 @@
+{
+	"type": "origamiPattern",
+	"patternName": "Flared card pocket",
+	"parameters": [
+		{
+			"type": "dimension",
+			"label": "width",
+			"coo": "w",
+			"default": 66,
+			"xFactor": "4",
+			"yFactor": "1"
+		},
+		{
+			"type": "dimension",
+			"label": "thickness",
+			"coo": "t",
+			"default": 15,
+			"xFactor": "4",
+			"yFactor": "0"
+		}
+	],
+	"coordinates": [
+		{ "coo": "x0", "value": "-2.5*w-2*t" },
+		{ "coo": "x1", "value": "-1.5*w-2*t" },
+		{ "coo": "y0", "value": "-.5*w" },
+		{ "coo": "y1", "value": ".5*w" }
+	],
+	"vertices": {
+		"A": ["x0", "y0"],
+		"B": ["x0", "y1"],
+		"C": ["x1", "y1"]
+	},
+	"lines": [
+		["A", "B", "mo"],
+		["C", "B", "va"]
+	]
+}

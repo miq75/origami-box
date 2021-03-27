@@ -1,11 +1,15 @@
 import * as THREE from "three";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { Canvas, useFrame } from "react-three-fiber";
 import { v4 as uuidv4 } from "uuid";
 import { create } from "./store/templates";
+
+// début ajout de MiQ part 1
+import { setPatternList, setPatternFromFile } from "./store/templates";
+// fin ajout de MiQ part 1
 
 function BoxMaterial() {
   return <meshStandardMaterial color="#FCB900" side={THREE.DoubleSide} />;
@@ -86,6 +90,32 @@ export default function CreatePage() {
   const [redirect, setRedirect] = useState(null);
   const dispatch = useDispatch();
 
+  // début ajout de MiQ part 2
+  const [pFL, setList] = useState([
+    { fileName: "...loading...", patternName: "...loading..." },
+  ]);
+
+  function handleSelectChange(event) {
+    loadPatternFile(event.target.value);
+  }
+
+  function loadPatternFile(value) {
+    fetch("/patterns/" + value)
+      .then((file) => file.json())
+      .then((json) => dispatch(setPatternFromFile(json)));
+  }
+
+  useEffect(() => {
+    fetch("/agregated.json")
+      .then((file) => file.json())
+      .then((json) => {
+        dispatch(setPatternList(json.patterns));
+        setList(json.patterns);
+        loadPatternFile(json.patterns[0].fileName);
+      });
+  }, [dispatch]);
+  // fin ajout de MiQ part 2
+
   function handleCreate() {
     const key = uuidv4();
     dispatch(create(key));
@@ -129,6 +159,20 @@ export default function CreatePage() {
                 </div>
               </div>
             </div>
+            // début ajout de MiQ part 3
+            <form>
+              <div className="mb-3">
+                <label htmlFor="select pattern">Pattern model </label>
+                <select onChange={handleSelectChange}>
+                  {pFL.map((p) => (
+                    <option key={p.patternName} value={p.fileName}>
+                      {p.patternName}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </form>
+            // fin ajout de MiQ part 3
           </div>
         </div>
       </div>

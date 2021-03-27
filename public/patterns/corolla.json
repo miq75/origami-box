@@ -1,0 +1,80 @@
+{
+	"type": "origamiPattern",
+	"patternName": "Corolla box",
+	"parameters": [
+		{
+			"type": "dimension",
+			"label": "length",
+			"coo": "l",
+			"default": 120,
+			"xFactor": "0",
+			"yFactor": "1"
+		},
+		{
+			"type": "dimension",
+			"label": "width",
+			"coo": "w",
+			"default": 90,
+			"xFactor": "1",
+			"yFactor": "0"
+		},
+		{
+			"type": "dimension",
+			"label": "height",
+			"coo": "h",
+			"default": 20,
+			"xFactor": "2",
+			"yFactor": "2"
+		}
+	],
+	"coordinates": [
+		{ "coo": "x0", "value": "-.5*w-h" },
+		{ "coo": "x1", "value": "-.5*w" },
+		{ "coo": "x2", "value": ".5*w" },
+		{ "coo": "x3", "value": ".5*w+h" },
+		{ "coo": "y0", "value": "-.5*l-h" },
+		{ "coo": "y1", "value": "-.5*l" },
+		{ "coo": "y2", "value": ".5*l" },
+		{ "coo": "y3", "value": ".5*l+h" }
+	],
+	"vertices": {
+		"A": ["x0", "y0"],
+		"B": ["x0", "y1"],
+		"C": ["x0", "y2"],
+		"D": ["x0", "y3"],
+		"E": ["x1", "y0"],
+		"F": ["x1", "y1"],
+		"G": ["x1", "y2"],
+		"H": ["x1", "y3"],
+		"I": ["x2", "y0"],
+		"J": ["x2", "y1"],
+		"K": ["x2", "y2"],
+		"L": ["x2", "y3"],
+		"M": ["x3", "y0"],
+		"N": ["x3", "y1"],
+		"O": ["x3", "y2"],
+		"P": ["x3", "y3"]
+	},
+	"lines": [
+		["A", "D", "bo"],
+		["D", "P", "bo"],
+		["P", "M", "bo"],
+		["M", "A", "bo"],
+		["A", "F", "va"],
+		["D", "G", "va"],
+		["P", "K", "va"],
+		["M", "J", "va"],
+		["F", "J", "va"],
+		["F", "G", "va"],
+		["G", "K", "va"],
+		["J", "K", "va"],
+		["B", "F", "mo"],
+		["F", "E", "mo"],
+		["C", "G", "mo"],
+		["G", "H", "mo"],
+		["L", "K", "mo"],
+		["K", "O", "mo"],
+		["N", "J", "mo"],
+		["J", "I", "mo"]
+	]
+}

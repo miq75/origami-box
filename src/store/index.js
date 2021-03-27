@@ -3,9 +3,11 @@ import persistState from "redux-localstorage";
 import thunk from "redux-thunk";
 import profileReducer from "./profile";
 import templatesReducer from "./templates";
+import patternReducer from "./templates";
 import { applyMigrations } from "./migrations";
 
 const reducers = combineReducers({
+  pattern: patternReducer, // ajout MiQ
   profile: profileReducer,
   templates: templatesReducer,
 });
