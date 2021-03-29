@@ -1,12 +1,9 @@
 import { v4 as uuidv4 } from "uuid";
 import { latestVersion } from "./migrations";
 
-// début ajout MiQ
-const initialState = {
-  pFileList: undefined,
-  pattern: undefined,
-};
+const initialState = {};
 
+// début ajout MiQ 1
 export function setPatternList(value) {
   return {
     type: "SET_PATTERN_LIST",
@@ -20,37 +17,11 @@ export function setPatternFromFile(value) {
     payload: { value },
   };
 }
-
-export function patternReducer(state = initialState, action) {
-  switch (action.type) {
-    case "SET_PATTERN_LIST": {
-      //      console.log("reducer set list:", action.payload.value);
-      return {
-        ...state,
-        pFileList: action.payload.value,
-      };
-    }
-
-    case "SET_PATTERN_FROM_FILE": {
-      console.log(
-        'reducer set pattern "' +
-          action.payload.value.patternName +
-          '" from file :',
-        action.payload.value
-      );
-      return {
-        ...state,
-        pattern: action.payload.value,
-      };
-    }
-
-    default:
-      return state;
-  }
-}
-// fin ajout MiQ
+// fin ajout MiQ 1
 
 const initialTemplate = {
+  pFileList: undefined,
+  pattern: undefined,
   title: "",
   version: latestVersion,
   savedate: 0,
@@ -162,6 +133,29 @@ export function deleteImage(templateKey, block, key) {
 
 export default function templateReducer(state = initialState, action) {
   switch (action.type) {
+    // début code MiQ 2
+    case "SET_PATTERN_LIST": {
+      //console.log("reducer set list:", action.payload.value);
+      return {
+        ...state,
+        pFileList: action.payload.value,
+      };
+    }
+
+    case "SET_PATTERN_FROM_FILE": {
+      console.log(
+        'reducer set pattern "' +
+          action.payload.value.patternName +
+          '" from file :',
+        action.payload.value
+      );
+      return {
+        ...state,
+        pattern: action.payload.value,
+      };
+    }
+    // fin code MiQ 2
+
     case "CREATE": {
       const { key } = action.payload;
       return {

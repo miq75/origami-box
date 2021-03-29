@@ -114,6 +114,13 @@ export default function CreatePage() {
         loadPatternFile(json.patterns[0].fileName);
       });
   }, [dispatch]);
+
+  function handleCreateSelected() {
+    const key = uuidv4();
+    dispatch(create(key));
+    setRedirect("/edit/" + key);
+  }
+
   // fin ajout de MiQ part 2
 
   function handleCreate() {
@@ -150,31 +157,31 @@ export default function CreatePage() {
                     {t("create.pattern.subtitle")}
                   </h6>
                   <p className="card-text">{t("create.pattern.description")}</p>
-                  <button
-                    onClick={handleCreate}
-                    className="btn btn-primary stretched-link"
-                  >
+                  <button onClick={handleCreate} className="btn btn-primary">
                     {t("create.pattern.button")}
                   </button>
                 </div>
               </div>
             </div>
-            // début ajout de MiQ part 3
-            <form>
-              <div className="mb-3">
-                <label htmlFor="select pattern">Pattern model </label>
-                <select onChange={handleSelectChange}>
-                  {pFL.map((p) => (
-                    <option key={p.patternName} value={p.fileName}>
-                      {p.patternName}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </form>
-            // fin ajout de MiQ part 3
           </div>
         </div>
+        // début ajout de MiQ part 3
+        <form>
+          <div className="mb-3">
+            <label htmlFor="select pattern">Pattern model </label>
+            <select onChange={handleSelectChange}>
+              {pFL.map((p) => (
+                <option key={p.patternName} value={p.fileName}>
+                  {p.patternName}
+                </option>
+              ))}
+            </select>
+            <button onClick={handleCreateSelected} className="btn btn-primary">
+              {t("create.this.model.button")}
+            </button>
+          </div>
+        </form>
+        // fin ajout de MiQ part 3
       </div>
     );
   }
