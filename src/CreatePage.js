@@ -113,6 +113,7 @@ export default function CreatePage() {
         setList(json.patterns);
         loadPatternFile(json.patterns[0].fileName);
       });
+    // eslint-disable-next-line
   }, [dispatch]);
 
   function handleCreateSelected() {
@@ -120,7 +121,6 @@ export default function CreatePage() {
     dispatch(create(key));
     setRedirect("/edit/" + key);
   }
-
   // fin ajout de MiQ part 2
 
   function handleCreate() {
@@ -165,7 +165,7 @@ export default function CreatePage() {
             </div>
           </div>
         </div>
-        // début ajout de MiQ part 3
+        {/* début ajout de MiQ part 3 */}
         <form>
           <div className="mb-3">
             <label htmlFor="select pattern">Pattern model </label>
@@ -181,7 +181,7 @@ export default function CreatePage() {
             </button>
           </div>
         </form>
-        // fin ajout de MiQ part 3
+        {/* fin ajout de MiQ part 3 */}
       </div>
     );
   }

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useRouteMatch } from "react-router-dom";
 import classNames from "classnames/dedupe";
 import { LeftForm, RightPreview } from "../Generic/Grid";
@@ -10,6 +10,8 @@ import { checkValidity } from "./helper";
 import { updateDetail, updateData, updateTemplate } from "../store/templates";
 import { useTemplate } from "../hooks";
 
+import { getLocalTemplates } from "../store"; // ajout MiQ
+
 export default function StepAGeneral() {
   const dispatch = useDispatch();
   const { t } = useTranslation();
@@ -17,6 +19,7 @@ export default function StepAGeneral() {
   const form = useRef(null);
   const { template, data: pattern } = useTemplate();
   const { url } = useRouteMatch();
+  const parameters = useSelector(getLocalTemplates).pattern.parameters; // ajout MiQ
 
   useEffect(() => {
     setValid(form.current.checkValidity());
@@ -63,47 +66,29 @@ export default function StepAGeneral() {
             <label htmlFor="length" className="form-label">
               {t("pattern.dimensions.label")}
             </label>
+            {/* début transformation de MiQ 1 */}
+            {/* (factorisation de 3 copier-coller des 3 mesures d'une boite
+     en une boucle sur les mesures définies dans le pattern. */}
             <div className="input-group">
-              <input
-                name="length"
-                type="number"
-                className="form-control"
-                style={{ width: "calc(100%/3)" }}
-                required
-                min="1"
-                step="0.01"
-                placeholder={t("pattern.dimensions.length")}
-                aria-label={t("pattern.dimensions.length")}
-                value={pattern.length}
-                onChange={handleInputChange}
-              />
-              <input
-                name="width"
-                type="number"
-                className="form-control"
-                style={{ width: "calc(100%/3)" }}
-                required
-                min="1"
-                step="0.01"
-                placeholder={t("pattern.dimensions.width")}
-                aria-label={t("pattern.dimensions.width")}
-                value={pattern.width}
-                onChange={handleInputChange}
-              />
-              <input
-                name="height"
-                type="number"
-                className="form-control"
-                style={{ width: "calc(100%/3)" }}
-                required
-                min="1"
-                step="0.01"
-                placeholder={t("pattern.dimensions.height")}
-                aria-label={t("pattern.dimensions.height")}
-                value={pattern.height}
-                onChange={handleInputChange}
-              />
+              {" "}
+              {parameters.map((d) => (
+                <input
+                  key={d.label}
+                  name={d.label}
+                  type="number"
+                  className="form-control"
+                  style={{ width: "calc(100%/length(parameters))" }}
+                  required
+                  min="1"
+                  step="0.01"
+                  placeholder={t("pattern.dimensions." + d.label)}
+                  aria-label={t("pattern.dimensions." + d.label)}
+                  value={pattern[d.label]}
+                  onChange={handleInputChange}
+                />
+              ))}{" "}
             </div>
+            {/* fin transformation de MiQ 1 */}
           </div>
           <div className="mb-3">
             <div className="form-check form-switch">

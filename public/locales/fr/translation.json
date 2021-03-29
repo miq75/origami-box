@@ -212,7 +212,8 @@
       "label": "Dimensions (mm)",
       "length": "Longueur",
       "width": "Largeur",
-      "height": "Hauteur"
+      "height": "Hauteur",
+			"thickness": "Épaisseur"
     },
     "front": "Recto",
     "back": "Verso"

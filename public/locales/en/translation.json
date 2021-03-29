@@ -212,7 +212,8 @@
       "label": "What are the dimensions of the box (in millimeters)?",
       "length": "Length",
       "width": "Width",
-      "height": "Height"
+      "height": "Height",
+      "thickness": "Thickness"
     },
     "front": "Front",
     "back": "Back"
