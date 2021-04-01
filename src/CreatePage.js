@@ -1,16 +1,16 @@
-import * as THREE from "three";
-import { useRef, useState, useEffect } from "react";
+//import * as THREE from "three";
+import { /*useRef,*/ useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { Canvas, useFrame } from "react-three-fiber";
+//import { Canvas, useFrame } from "react-three-fiber";
 import { v4 as uuidv4 } from "uuid";
 import { create } from "./store/templates";
 
 // début ajout de MiQ part 1
 import { setPatternList, setPatternFromFile } from "./store/templates";
 // fin ajout de MiQ part 1
-
+/*
 function BoxMaterial() {
   return <meshStandardMaterial color="#FCB900" side={THREE.DoubleSide} />;
 }
@@ -84,7 +84,7 @@ function PatternBox(props) {
     </group>
   );
 }
-
+*/
 export default function CreatePage() {
   const { t } = useTranslation();
   const [redirect, setRedirect] = useState(null);
@@ -122,19 +122,20 @@ export default function CreatePage() {
     setRedirect("/edit/" + key);
   }
   // fin ajout de MiQ part 2
-
+  /*
   function handleCreate() {
     const key = uuidv4();
     dispatch(create(key));
     setRedirect("/edit/" + key);
   }
-
+*/
   if (redirect !== null) {
     return <Redirect to={redirect} />;
   } else {
     return (
       <div className="container">
         <h1>{t("create.title")}</h1>
+        {/*
         <div className="row">
           <div className="card col-6">
             <div className="row g-0">
@@ -165,6 +166,7 @@ export default function CreatePage() {
             </div>
           </div>
         </div>
+				*/}
         {/* début ajout de MiQ part 3 */}
         <form>
           <div className="mb-3">
@@ -177,7 +179,7 @@ export default function CreatePage() {
               ))}
             </select>
             <button onClick={handleCreateSelected} className="btn btn-primary">
-              {t("create.this.model.button")}
+              {t("create.button")}
             </button>
           </div>
         </form>

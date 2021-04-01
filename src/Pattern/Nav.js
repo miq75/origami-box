@@ -41,24 +41,10 @@ export default function Nav() {
           title={t("pattern.stepAGeneral.title")}
           withLink={isGeneralValid(pattern)}
         />
-        {!pattern.withLid && pattern.withDesign && (
+        {pattern.withDesign && (
           <BreadcrumbItem
             path={`${path}/base`}
             title={t("pattern.stepBDesign.box.title")}
-            withLink={isGeneralValid(pattern)}
-          />
-        )}
-        {pattern.withLid && pattern.withDesign && (
-          <BreadcrumbItem
-            path={`${path}/base`}
-            title={t("pattern.stepBDesign.base.title")}
-            withLink={isGeneralValid(pattern)}
-          />
-        )}
-        {pattern.withLid && pattern.withDesign && (
-          <BreadcrumbItem
-            path={`${path}/lid`}
-            title={t("pattern.stepBDesign.lid.title")}
             withLink={isGeneralValid(pattern)}
           />
         )}

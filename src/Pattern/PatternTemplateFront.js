@@ -30,9 +30,9 @@ styles.mark = {
   stroke: "blue",
 };
 
-export default function PatternTemplateFront({ lid = false, print = false }) {
+export default function PatternTemplateFront({ print = false }) {
   const { template, data: pattern } = useTemplate();
-  const m = usePatternMeasurement(pattern, lid);
+  const m = usePatternMeasurement(pattern);
 
   if (m === null) {
     return (
@@ -66,7 +66,7 @@ export default function PatternTemplateFront({ lid = false, print = false }) {
               dominantBaseline: "text-before-edge",
             }}
           >
-            {lid ? "Lid" : pattern.withLid ? "Base" : "Box"}
+            {"Base"}
             <tspan
               dx="10"
               dy="3"

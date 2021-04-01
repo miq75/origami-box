@@ -8,11 +8,11 @@ import PatternTemplateBack from "./PatternTemplateBack";
 import Nav from "./Nav";
 import { useTemplate } from "../hooks";
 
-export default function StepBDesign({ lid = false }) {
+export default function StepBDesign() {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const { template, data: pattern } = useTemplate();
-  const block = lid ? pattern.lid : pattern.base;
+  const block = pattern.base;
   const baseUrl = "/edit/" + template.key;
 
   function handleBackgroundColorChange(color) {
@@ -171,23 +171,13 @@ export default function StepBDesign({ lid = false }) {
           </div>
         </div>
         <div className="mb-3 mt-5 d-flex">
-          {!lid && pattern.withLid && (
-            <Link className="btn btn-primary ms-auto" to={`${baseUrl}/lid`}>
-              {t("pattern.stepBDesign.lid.linkTo")}
-            </Link>
-          )}
-          {(lid || !pattern.withLid) && (
-            <Link
-              className="btn btn-primary ms-auto"
-              to={`${baseUrl}/generate`}
-            >
-              {t("pattern.stepZGenerate.linkTo")}
-            </Link>
-          )}
+          <Link className="btn btn-primary ms-auto" to={`${baseUrl}/generate`}>
+            {t("pattern.stepZGenerate.linkTo")}
+          </Link>
         </div>
       </LeftForm>
       <RightPreview>
-        <PatternTemplateBack lid={lid} />
+        <PatternTemplateBack />
       </RightPreview>
     </div>
   );

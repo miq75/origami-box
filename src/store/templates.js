@@ -36,18 +36,8 @@ const initialPattern = {
   width: "",
   height: "",
   withDesign: true,
-  withLid: false,
   base: {
     key: "base",
-    background: "#8ED1FC",
-    backgroundImage: null,
-    texts: {},
-    images: {},
-  },
-  lid: {
-    key: "lid",
-    delta: 3,
-    height: "",
     background: "#8ED1FC",
     backgroundImage: null,
     texts: {},

@@ -46,7 +46,6 @@ function SvgRoot({ withPaper, m, children }) {
 }
 
 export default function PatternTemplateBack({
-  lid = false,
   print = false,
   text = null,
   image = null,
@@ -56,7 +55,6 @@ export default function PatternTemplateBack({
   return (
     <PatternTemplate
       pattern={pattern}
-      lid={lid}
       print={print}
       text={text}
       image={image}
@@ -67,13 +65,12 @@ export default function PatternTemplateBack({
 
 export function PatternTemplate({
   pattern,
-  lid = false,
   print = false,
   text = null,
   image = null,
   withPaper = true,
 }) {
-  const m = usePatternMeasurement(pattern, lid);
+  const m = usePatternMeasurement(pattern);
 
   if (m === null) {
     if (withPaper) {
@@ -99,7 +96,7 @@ export function PatternTemplate({
     }
   }
 
-  const block = lid ? pattern.lid : pattern.base;
+  const block = pattern.base;
   const images = getImages(block, image);
   const texts = getTexts(block, text);
   const faces = createFaces(m.l_2, m.w_2, m.h_2);
@@ -204,7 +201,7 @@ export function PatternTemplate({
 
         {Object.keys(faces).map((key) => {
           const face = faces[key];
-          const rotate = lid && key !== "0" ? 180 + face.rotate : face.rotate;
+          const rotate = key !== "0" ? 180 + face.rotate : face.rotate;
           return (
             <g key={key} clipPath={`url(#${key})`}>
               <g transform={`rotate(${rotate} ${face.x} ${face.y})`}>

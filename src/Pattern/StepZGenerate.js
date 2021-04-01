@@ -109,16 +109,6 @@ export default function StepZGenerate() {
               <PatternTemplateBack print="true" />
             </div>
           )}
-          {pattern.withLid && (
-            <div className="col-12 col-lg-6 mb-3">
-              <PatternTemplateFront lid print="true" />
-            </div>
-          )}
-          {pattern.withLid && pattern.withDesign && (
-            <div className="col-12 col-lg-6 mb-3">
-              <PatternTemplateBack lid print="true" />
-            </div>
-          )}
         </div>
       </RightPreview>
     </div>

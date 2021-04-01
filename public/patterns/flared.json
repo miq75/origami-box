@@ -6,17 +6,13 @@
 			"type": "dimension",
 			"label": "width",
 			"coo": "w",
-			"default": 66,
-			"xFactor": "4",
-			"yFactor": "1"
+			"default": 66
 		},
 		{
 			"type": "dimension",
 			"label": "thickness",
 			"coo": "t",
-			"default": 15,
-			"xFactor": "4",
-			"yFactor": "0"
+			"default": 15
 		}
 	],
 	"coordinates": [

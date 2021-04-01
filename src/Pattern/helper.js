@@ -46,7 +46,7 @@ export function checkValidity(target) {
   return target.value;
 }
 
-export function usePatternMeasurement(pattern, lid = false) {
+export function usePatternMeasurement(pattern) {
   let pageWidth = 210;
   let pageHeight = 297;
 
@@ -56,16 +56,6 @@ export function usePatternMeasurement(pattern, lid = false) {
 
   if (isNaN(l + w + h) || l <= 0 || w <= 0 || h <= 0) {
     return null;
-  }
-
-  // Adjust for lid, if needed
-  if (lid) {
-    l += pattern.lid.delta;
-    w += pattern.lid.delta;
-    h =
-      pattern.lid.height === ""
-        ? h - 0.5 * pattern.lid.delta
-        : pattern.lid.height;
   }
 
   const max = l + w + 4.0 * h;

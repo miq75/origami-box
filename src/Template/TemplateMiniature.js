@@ -41,49 +41,7 @@ export function TemplateMiniature({
               <Loader type="Oval" color="#fff" />
             </div>
           )}
-          {template.data.withLid && (
-            <div
-              id={`carouselTemplate${index}`}
-              className="carousel carousel-dark slide"
-              data-bs-ride="carousel"
-              data-bs-interval={false}
-            >
-              <div className="carousel-indicators">
-                <button
-                  type="button"
-                  data-bs-target={`#carouselTemplate${index}`}
-                  data-bs-slide-to="0"
-                  className="active"
-                  title={t("pattern.stepBDesign.lid.title")}
-                ></button>
-                <button
-                  type="button"
-                  data-bs-target={`#carouselTemplate${index}`}
-                  data-bs-slide-to="1"
-                  title={t("pattern.stepBDesign.base.title")}
-                ></button>
-              </div>
-              <div className="carousel-inner">
-                <div className="carousel-item active">
-                  <PatternTemplate
-                    pattern={template.data}
-                    lid={true}
-                    withPaper={false}
-                  />
-                </div>
-                <div className="carousel-item">
-                  <PatternTemplate
-                    pattern={template.data}
-                    lid={false}
-                    withPaper={false}
-                  />
-                </div>
-              </div>
-            </div>
-          )}
-          {!template.data.withLid && (
-            <PatternTemplate pattern={template.data} withPaper={false} />
-          )}
+          <PatternTemplate pattern={template.data} withPaper={false} />
         </div>
         <div className="card-body">
           <h5 className="card-title">

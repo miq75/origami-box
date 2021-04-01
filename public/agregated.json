@@ -14,6 +14,10 @@
 			"patternName": "Corolla box"
 		},
 		{
+			"fileName": "masuLight.json",
+			"patternName": "Masu lightened box"
+		},
+		{
 			"fileName": "flared.json",
 			"patternName": "Flared card pocket"
 		}
