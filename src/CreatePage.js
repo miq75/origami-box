@@ -91,6 +91,9 @@ export default function CreatePage() {
   const dispatch = useDispatch();
 
   // début ajout de MiQ part 2
+
+  // ICI faire un accès au pattern sélectionné
+
   const [pFL, setList] = useState([
     { fileName: "...loading...", patternName: "...loading..." },
   ]);
@@ -120,7 +123,9 @@ export default function CreatePage() {
     const key = uuidv4();
     dispatch(create(key));
     setRedirect("/edit/" + key);
+    // ICI utiliser l'accès aux parametres du pattern sélectionné pour appeler la création de ces valeurs par défaut
   }
+
   // fin ajout de MiQ part 2
   /*
   function handleCreate() {

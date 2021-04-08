@@ -68,22 +68,24 @@ export default function StepAGeneral() {
             {/* (factorisation de 3 copier-coller des 3 mesures d'une boite
      en une boucle sur les mesures définies dans le pattern. */}
             <div className="input-group">
-              {" "}
               {parameters.map((d) => (
-                <input
-                  key={d.label}
-                  name={d.label}
-                  type="number"
-                  className="form-control"
-                  style={{ width: "calc(100%/length(parameters))" }}
-                  required
-                  min="1"
-                  step="0.01"
-                  placeholder={t("pattern.dimensions." + d.label)}
-                  aria-label={t("pattern.dimensions." + d.label)}
-                  value={pattern[d.label]}
-                  onChange={handleInputChange}
-                />
+                <div>
+                  <label className="form-check-label" htmlFor="withDesign">
+                    {t("pattern.dimensions." + d.label)}
+                  </label>
+                  <input
+                    key={d.label}
+                    name={d.label}
+                    type="number"
+                    className="form-control"
+                    required
+                    min="5"
+                    step="0.05"
+                    //placeholder={d.default}
+                    value={pattern[d.label]}
+                    onChange={handleInputChange}
+                  />
+                </div>
               ))}{" "}
             </div>
             {/* fin transformation de MiQ 1 */}

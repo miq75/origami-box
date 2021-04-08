@@ -20,8 +20,6 @@ export function setPatternFromFile(value) {
 // fin ajout MiQ 1
 
 const initialTemplate = {
-  pFileList: undefined,
-  pattern: undefined,
   title: "",
   version: latestVersion,
   savedate: 0,
@@ -32,9 +30,6 @@ const initialTemplate = {
 
 const initialPattern = {
   pageFormat: "A4",
-  length: "",
-  width: "",
-  height: "",
   withDesign: true,
   base: {
     key: "base",
@@ -133,12 +128,7 @@ export default function templateReducer(state = initialState, action) {
     }
 
     case "SET_PATTERN_FROM_FILE": {
-      console.log(
-        'reducer set pattern "' +
-          action.payload.value.patternName +
-          '" from file :',
-        action.payload.value
-      );
+      //console.log( 'reducer SET_PATTERN_FILE "' + action.payload.value.patternName + '" from file :', action.payload.value);
       return {
         ...state,
         pattern: action.payload.value,
@@ -148,6 +138,13 @@ export default function templateReducer(state = initialState, action) {
 
     case "CREATE": {
       const { key } = action.payload;
+      // début code MiQ 3
+      let patternDefaults = {};
+      for (let p of state.pattern.parameters) {
+        patternDefaults[p.label] = p.default;
+      }
+      //console.log( 'reducer CREATE set patternDefaults "' + patternDefaults);
+      // fin code MiQ 3
       return {
         ...state,
         [key]: {
@@ -156,6 +153,7 @@ export default function templateReducer(state = initialState, action) {
           savedate: new Date().getTime(),
           data: {
             ...initialPattern,
+            ...patternDefaults, // ajout MiQ 3
           },
         },
       };
